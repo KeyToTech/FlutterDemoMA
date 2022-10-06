@@ -193,7 +193,7 @@ class _PayScreenState extends State<PayScreen> {
       if (!_dotPressed) {
         _beforeDot = _beforeDot == "0" ? "$number" : "$_beforeDot$number";
       } else {
-        if (_afterDot == "0") {
+        if (_afterDot == "0" && number == 0) {
           _afterDot = "$number";
         } else {
           _afterDot = "$_afterDot$number";
@@ -212,6 +212,7 @@ class _PayScreenState extends State<PayScreen> {
         width: 40.w,
         height: 40.h,
         child: Text(number.toString(),
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.sp,
@@ -228,6 +229,7 @@ class _PayScreenState extends State<PayScreen> {
         width: 40.w,
         height: 40.h,
         child: Text(s,
+            textAlign: TextAlign.center,
             style: TextStyle(
               color: Colors.white,
               fontSize: 25.sp,
