@@ -11,3 +11,8 @@ Flutter demo project
 - Introduce tests
 - Extract business logic into usecases/services/repositories etc
 - implement API, remove mocks
+
+
+## Screenshots
+
+* [All platforms](screenshots)
