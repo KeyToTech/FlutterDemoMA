@@ -183,7 +183,7 @@ class _LoanScreenState extends State<LoanScreen> {
   Widget _applyButton() {
     return Obx(
       () => Padding(
-        padding: EdgeInsets.symmetric(vertical: 16.h, horizontal: 80.w),
+        padding: EdgeInsets.symmetric(vertical: 24.h, horizontal: 80.w),
         child: ElevatedButton(
           style: ElevatedButton.styleFrom(
             minimumSize: Size.fromHeight(60.h),

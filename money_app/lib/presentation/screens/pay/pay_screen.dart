@@ -55,6 +55,7 @@ class _PayScreenState extends State<PayScreen> {
               const Spacer(),
               _numberKeyboard(),
               const Spacer(),
+              const Spacer(),
               Padding(
                 padding: EdgeInsets.symmetric(horizontal: 80.w, vertical: 50.h),
                 child: _nextButton(),
@@ -67,7 +68,9 @@ class _PayScreenState extends State<PayScreen> {
   }
 
   Widget _nextButton() {
-    var enabled = double.parse(_amount) > 0.0;
+    String inString = double.parse(_amount).toStringAsFixed(2);
+    final amount = double.parse(inString);
+    var enabled = amount > 0.0;
     return PayButton(
         text: widget.paymentType == TransactionType.payment ? 'Next' : 'Top-up',
         enabled: enabled,
@@ -75,7 +78,7 @@ class _PayScreenState extends State<PayScreen> {
           final TransactionsController controller = Get.find();
           if (widget.paymentType == TransactionType.payment) {
             Get.to(() => PayWhomScreen(
-                  amount: double.parse(_amount),
+                  amount: amount,
                 ));
           } else {
             controller.topUp(
@@ -138,7 +141,9 @@ class _PayScreenState extends State<PayScreen> {
                   if (_dotPressed && _afterDot.isNotEmpty && _afterDot != "0") {
                     _deleteRightChar();
                   } else {
-                    _dotPressed = false;
+                    setState(() {
+                      _dotPressed = false;
+                    });
                     _deleteLeftChar();
                   }
                 },
